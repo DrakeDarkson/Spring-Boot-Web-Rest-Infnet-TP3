@@ -1,5 +1,6 @@
 package al.infnet.edu.br.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -11,6 +12,8 @@ public class Curso {
     private String nome;
 
     @ManyToMany(mappedBy = "cursos")
+
+    @JsonIgnoreProperties("cursos")
     private Set<Aluno> alunos;
 
     public Curso() {}

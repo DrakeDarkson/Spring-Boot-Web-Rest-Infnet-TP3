@@ -1,5 +1,6 @@
 package al.infnet.edu.br.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Aluno {
             joinColumns = @JoinColumn(name = "aluno_id"),
             inverseJoinColumns = @JoinColumn(name = "curso_id")
     )
+    @JsonIgnoreProperties("alunos")
     private Set<Curso> cursos;
 
     public Aluno() {}
